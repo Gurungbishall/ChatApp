@@ -3,7 +3,6 @@ import { io } from "socket.io-client";
 
 function App() {
   const [message, setMessage] = useState("");
-  const [socketId, setSocketId] = useState("");
   const [allMessages, setAllMessages] = useState<string[]>([]);
   const messageListEndRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +19,6 @@ function App() {
 
   useEffect(() => {
     socket.on("connect", () => {
-      setSocketId(socket.id as string);
       console.log("connected", socket.id);
     });
 
